@@ -1,0 +1,32 @@
+name: PHP Application CI/CD
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: 8.1
+
+    - name: Run PHP lint (syntax check)
+      run: php -l save_application.php
+
+    - name: Deploy to server via SSH
+      uses: appleboy/ssh-action@v0.1.5
+      with:
+        host: ${{ secrets.SERVER_HOST }}
+        username: ${{ secrets.SERVER_USER }}
+        key: ${{ secrets.SERVER_SSH_KEY }}
+        script: |
+          cd /var/www/html/yourproject
+          git pull origin main
