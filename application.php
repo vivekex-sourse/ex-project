@@ -3,9 +3,9 @@
 
 // 1. Database connection settings
 $host     = "localhost";
-$dbname   = "app_form_db";
-$username = "root";
-$password = "your_db_password_here";
+$dbname   = "customer_db";
+$username = "webuser";
+$password = "password123";
 
 try {
     // 2. Create PDO connection
