@@ -2,9 +2,9 @@
 // save_application.php
 
 // 1. Database connection settings
-$host     = "localhost";
-$dbname   = "customer_db";
-$username = "webuser";
+$host     = "192.168.1.9";
+$dbname   = "customer_db2";
+$username = "webuser2";
 $password = "password123";
 
 try {
