@@ -19,7 +19,7 @@ jobs:
         php-version: 8.1
 
     - name: Run PHP lint (syntax check)
-      run: php -l save_application.php
+      run: php -l ./save_application.php
 
     - name: Deploy to server via SSH
       uses: appleboy/ssh-action@v0.1.5
